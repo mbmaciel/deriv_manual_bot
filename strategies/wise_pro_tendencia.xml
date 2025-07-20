@@ -1,0 +1,91 @@
+<xml xmlns="http://www.w3.org/1999/xhtml" collection="false">
+  <variables>
+    <variable type="" id="=#TD}7Wzy0Q=E7M0]]nu">VALOR INICIAL</variable>
+    <variable type="" id="!wY_/9OW`Gvu]V7ay2Ew">LISTA DE TICKS</variable>
+    <variable type="" id="_*6x!I]=#l;ClL#9j9Ph">VALOR APÓS VENCER</variable>
+    <variable type="" id="sW-W$#`s$#V=5.tK{G8H">MAX</variable>
+    <variable type="" id="==n;[jQYJ2WyaXQktyQ8">MARTINGALE</variable>
+    <variable type="" id="DG+XlCcSFR6/L=oyGWbp">MIN</variable>
+    <variable type="" id="x1`lkChW+|:.qHW{|lZr">META DE LUCRO</variable>
+    <variable type="" id=";E:F5Le4L,Op[*Z%t%|i">LIMITE DE PERDA</variable>
+  </variables>
+  <block type="trade" id="xgH69|xFn9=70w.*3Vo@" x="0" y="0">
+    <field name="MARKET_LIST">synthetic_index</field>
+    <field name="SUBMARKET_LIST">random_index</field>
+    <field name="SYMBOL_LIST">R_100</field>
+    <field name="TRADETYPECAT_LIST">callput</field>
+    <field name="TRADETYPE_LIST">risefall</field>
+    <field name="TYPE_LIST">both</field>
+    <field name="CANDLEINTERVAL_LIST">60</field>
+    <field name="TIME_MACHINE_ENABLED">FALSE</field>
+    <field name="RESTARTONERROR">TRUE</field>
+    <statement name="INITIALIZATION">
+      <block type="variables_set" id="i;mavPd%}=$th6==|BDE">
+        <field name="VAR" id="=#TD}7Wzy0Q=E7M0]]nu" variabletype="">VALOR INICIAL</field>
+        <value name="VALUE">
+          <block type="math_number" id="vm]E61EpTQ,fW([YN)~E">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="X7J{z(`kjex@IQ/X/]hY">
+            <field name="VAR" id="_*6x!I]=#l;ClL#9j9Ph" variabletype="">VALOR APÓS VENCER</field>
+            <value name="VALUE">
+              <block type="variables_get" id="SKib9n3av79IsA}`/1~q">
+                <field name="VAR" id="=#TD}7Wzy0Q=E7M0]]nu" variabletype="">VALOR INICIAL</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="jRHPyjdR[ag^|)zTm)U)">
+                <field name="VAR" id="==n;[jQYJ2WyaXQktyQ8" variabletype="">MARTINGALE</field>
+                <value name="VALUE">
+                  <block type="math_number" id="?wcckL0mLl%h_I0pM=s~">
+                    <field name="NUM">1.5</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="Z{x}0#!HBoZP:r2LSC5$">
+                    <field name="VAR" id="x1`lkChW+|:.qHW{|lZr" variabletype="">META DE LUCRO</field>
+                    <value name="VALUE">
+                      <block type="math_number" id="c4NF%FCn1[ycVLbfqR8y">
+                        <field name="NUM">25</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="QvwADcW2{VKt]=gWMu6J">
+                        <field name="VAR" id=";E:F5Le4L,Op[*Z%t%|i" variabletype="">LIMITE DE PERDA</field>
+                        <value name="VALUE">
+                          <block type="math_number" id="CiN+dPVQjKl~~Cp)+Z+(">
+                            <field name="NUM">100</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="SUBMARKET">
+      <block type="tradeOptions" id="x=V33~4Lb|(sLv`J[:Eb">
+        <field name="DURATIONTYPE_LIST">t</field>
+        <value name="DURATION">
+          <shadow type="math_number" id="I{Z#tKOdii3%49ykK=1K">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <value name="AMOUNT">
+          <shadow type="math_number" id="ml)25~7^q}3I9}vjf:%K">
+            <field name="NUM">1</field>
+          </shadow>
+          <block type="variables_get" id="~!}FBu*;Lm(Qq!jz(grU">
+            <field name="VAR" id="=#TD}7Wzy0Q=E7M0]]nu" variabletype="">VALOR INICIAL</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>

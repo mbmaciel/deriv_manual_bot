@@ -1,0 +1,20 @@
+{
+  "enabled": true,
+  "name": "Linux Commands Helper",
+  "description": "Automatically suggests relevant Linux commands when any code file is modified to help with development workflow",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "*.js",
+      "*.json",
+      "*.xml",
+      "*.md",
+      "*.env"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "A code file has been modified. Please suggest relevant Linux commands that would be useful for this change, such as file operations, process management, testing, or deployment commands. Consider the Node.js trading bot context and provide practical Linux commands that would help with development workflow."
+  }
+}
